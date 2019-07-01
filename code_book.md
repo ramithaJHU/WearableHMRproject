@@ -1,4 +1,4 @@
-## Code Book for WearableHMRproject: Getting and Cleaning Data 
+### Code Book for WearableHMRproject: Getting and Cleaning Data 
 ####  JHU Data Science Specialization Course Project
 ***
 Author: Ramitha P. Rathnayake
@@ -14,13 +14,13 @@ A full description of the project, where the data used in this project were coll
 ___
 #### Steps associated in generating the data in "Tidy_Data.csv" and "Tidy_Data_Summary.csv" are:
     1. Downloaded and extracted the file in above link
-    2. Training and the test sets were merged to create one data set. This data set was then mearged with features and subject data
+    2. Training and the test sets were merged to create one data set. This data set was then merged with features and subject data
     3. Measurements on the mean and standard deviation for each measurement were extracted to create a separate data set.
     4. Descriptive activity names were used to replace activity numbers in the data set
     5. Data set was named with descriptive variable names
     6. A second data set was created from the data set in step 5
     7. Data set in step 6 was first grouped by subject and then grouped by activity. then, the average of each variable for each activity and each subject was calculated.
-    8. Both tidy data set in sep 6 and simmarized data set in step 7 were saved to files.
+    8. Both tidy data set in step 6 and summarized data set in step 7 were saved to files.
 
 ___
 #### Variables in "Tidy_Data.csv"
@@ -40,23 +40,23 @@ ___
 
 - "X", "Y", "Z" suffixes in variable names used to denote 3-axial signals in the X, Y and Z directions.
 
-- "Acc" in variable nanes used to denote measurements taken with accelerometer
+- "Acc" in variable names used to denote measurements taken with accelerometer
     - `tAcc-XYZ` 
 
-- "Gyro" in variable nanes used to denote measurements taken with gyroscope
+- "Gyro" in variable names used to denote measurements taken with gyroscope
     - `tGyro-XYZ` 
     
 - Prefix 't'  in variable names used to denote time domain signals
 
-- "Body" and "Gravity" in variable nanes used to denote acceleration signal  separated into body and gravity acceleration signals 
+- "Body" and "Gravity" in variable names used to denote acceleration signal  separated into body and gravity acceleration signals 
     - `tBodyAcc-XYZ` : Body acceleration
     - `tGravityAcc-XYZ`: Gravitational acceleration
 
-- "JerK" in variable nanes used to denote the body linear acceleration and angular velocity derived in time to obtain Jerk 
+- "JerK" in variable names used to denote the body linear acceleration and angular velocity derived in time to obtain Jerk 
     - `tBodyAccJerk-XYZ`
     - `tBodyGyroJerk-XYZ`
 
-- "JerlMag" in variable nanes used to denote the magnitude of these three-dimensional signals (tBodyAccJerk-XYZ and tBodyGyroJerk-XYZ) calculated using the Euclidean norm.
+- "JerlMag" in variable names used to denote the magnitude of these three-dimensional signals (tBodyAccJerk-XYZ and tBodyGyroJerk-XYZ) calculated using the Euclidean norm.
     - `tBodyAccMag`
     - `tGravityAccMag`
     - `tBodyAccJerkMag`
@@ -75,11 +75,11 @@ ___
 ___
 #### Variables in "Tidy_Data_Summary.csv"
 
-- "mean" in variable nanes used to denote Mean value estimated from original signals
+- "mean" in variable names used to denote Mean value estimated from original signals
 
-- "std" in variable nanes used to denote Standard deviation estimated from original signals
+- "std" in variable names used to denote Standard deviation estimated from original signals
 
-- "angle" in variable nanes used to denote Angle between to vectors
+- "angle" in variable names used to denote Angle between to vectors
 
 - Additional vectors obtained averaging the signals in a signal window sample. These are used on the angle variable:
 
@@ -89,7 +89,7 @@ ___
     - `tBodyGyroMean`
     - `tBodyGyroJerkMean`
 
-- Variable whick were in original data set, which are not in tidy data set include variable names containing words:
+- Variable which were in original data set, which are not in tidy data set include variable names containing words:
     - `mad`: Median absolute deviation 
     - `max`: Largest value in array
     - `min`: Smallest value in array
