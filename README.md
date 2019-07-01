@@ -11,8 +11,8 @@ ___
 - **README.md** : Contains an introduction and Instruction List:
 - **code_book.md**  : Contains description of all the Variables and Summary Choices:
 - **run_analysis.R** : Contains R script for converting row data into tidy data and then summarizing the data
-- **Tidy_Data.csv** : Contains the tidy data obtained from above R script 
-- **Tidy_Data_Summary.csv** : Contains the summary of tidy data obtained from above R script 
+- **Tidy_Data.txt** : Contains the tidy data obtained from above R script 
+- **Tidy_Data_Summary.txt** : Contains the summary of tidy data obtained from above R script 
 
 ___
 #### R script file, `run_analysis.R`, Contains R script for converting row data into tidy data and them summarizing the data.
@@ -39,4 +39,4 @@ This R script created under following environment
 13. Change Variable names to represent these are Summarized by adding "AVG" prefix
 14. Write tidy and Summarized data to a file
 
-Tidy data and Summarized tidy data were saved two files named "Tidy_Data.csv" and "Tidy_Data_Summary.csv" respectively and uploaded for reference.
+Tidy data and Summarized tidy data were saved two files named "Tidy_Data.txt" and "Tidy_Data_Summary.txt" respectively and uploaded for reference.

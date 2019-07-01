@@ -80,6 +80,6 @@ colnames(tidyData_summarized) <- c("subject", "activity", paste("AVG",
                                 colnames(tidyData_summarized[3:ncol(tidyData_summarized)]), sep = "_"))
 # Write tidy and Summarized data to a file
 
-write.csv(tidyData, "Tidy_Data.csv")
-write.csv(tidyData_summarized, "Tidy_Data_Summary.csv")
+write.table(tidyData, "Tidy_Data.txt")
+write.table(tidyData_summarized, "Tidy_Data_Summary.txt")
 
