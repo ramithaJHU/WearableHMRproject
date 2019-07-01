@@ -60,7 +60,7 @@ subject_merged <- rbind(subject_test, subject_train)
 # Remove original data frames from memory to save memory
 rm("subject_test", "X_test", "Y_test", "subject_train", "X_train", "Y_train" )
 
-# Replace activity numbers in Y_merge with activity names
+## Replace activity numbers in Y_merge with activity names
 Y_merged$activity <- factor(Y_merged$activity, labels = activity_labels$activity_label)
 
 #names(X_merged) <- grep(".", "_", names(X_merged))
