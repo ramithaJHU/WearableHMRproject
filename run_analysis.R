@@ -76,9 +76,10 @@ tidyData <- cbind(X_Mean_Std, Y_merged, subject_merged)
 tidyData_summarized <- tidyData %>% group_by(subject, activity) %>% summarise_all(funs(mean))
 
 # Change Variable names to represent these are Summarized by adding "AVG" prefix
-colnames(tidyData_summarized[3:ncol(tidyData_summarized)])<-paste("AVG", 
-                        colnames(tidyData_summarized[3:ncol(tidyData_summarized)]), sep = "_")
+colnames(tidyData_summarized) <- c("subject", "activity", paste("AVG", 
+                                colnames(tidyData_summarized[3:ncol(tidyData_summarized)]), sep = "_"))
 # Write tidy and Summarized data to a file
 
 write.csv(tidyData, "Tidy_Data.csv")
 write.csv(tidyData_summarized, "Tidy_Data_Summary.csv")
+
