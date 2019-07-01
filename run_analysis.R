@@ -11,9 +11,7 @@
 
 #R version 3.5.2 (2018-12-20)
 #RStudio Version: 1.1.456
-library(utils)
 library(dplyr)
-setwd("D:/jhu/wk12-3.4 Assignment/WearableHARproject")
 
 ## Download and unzip the dataset:
 fileName <- "UCI HAR Dataset.zip"
@@ -26,17 +24,30 @@ if (!file.exists("UCI HAR Dataset")) {
     unzip(fileName) 
 }
 
-# Read the features descriptions and Activity Lables
+# Read Feature descriptions and Activity lables
 features<-read.table("./UCI HAR Dataset/features.txt", col.names = c("num:", "feature"))
 activity_labels<-read.table("./UCI HAR Dataset/activity_labels.txt", col.names = c("num:", "activity_label"))
 
+# Check for duplicated features 
+duplicated_features <- features[duplicated(features$feature), "feature"]
+# Check if there are any measurements with  word mean or sd among duplicated items
+grep("[Mm][Ee][Aa][Nn]|[Ss][Tt][Dd]", duplicated_features, value = TRUE) # There are none 
+#  So even though there are duplicate columns, as we will not be using them, 
+#  we do not need to combine/filter them out
+#  Remove "()" , replace "(" with "_", replace ")" with "", replace "," with "_"
+#  in feature names to make it meaningfull as DF column names can not contain () and ,
+features$feature <- gsub("[(][)]", "", features$feature)
+features$feature <- gsub("[)]", "", features$feature)
+features$feature <- gsub("[(]", "_", features$feature)
+features$feature <- gsub(",", "_", features$feature)
+features$feature <- gsub("-", "_", features$feature)
 # Read the Test and Training data into variables with the same file names 
 # from the subfolders within project folder 
-subject_test<-read.table("./UCI HAR Dataset/test/subject_test.txt", col.names = c("subject_no"))
+subject_test<-read.table("./UCI HAR Dataset/test/subject_test.txt", col.names = c("subject"))
 X_test<-read.table("./UCI HAR Dataset/test/X_test.txt", col.names = features$feature)
 Y_test<-read.table("./UCI HAR Dataset/test/Y_test.txt", col.names = c("activity"))
 
-subject_train<-read.table("./UCI HAR Dataset/train/subject_train.txt", col.names = c("subject_no"))
+subject_train<-read.table("./UCI HAR Dataset/train/subject_train.txt", col.names = c("subject"))
 X_train<-read.table("./UCI HAR Dataset/train/X_train.txt", col.names = features$feature)
 Y_train<-read.table("./UCI HAR Dataset/train/Y_train.txt", col.names = c("activity"))
 
@@ -49,19 +60,25 @@ subject_merged <- rbind(subject_test, subject_train)
 # Remove original data frames from memory to save memory
 rm("subject_test", "X_test", "Y_test", "subject_train", "X_train", "Y_train" )
 
-# assign activity labels to activity numbers in Y-merger
+# Replace activity numbers in Y_merge with activity names
 Y_merged$activity <- factor(Y_merged$activity, labels = activity_labels$activity_label)
-# Convert Subjects into factors and assign column name to subject
 
+#names(X_merged) <- grep(".", "_", names(X_merged))
+# Find the column indexes, where word mean or std appear in any letter combination 
+features_meanStd_index <- grep("[Mm][Ee][Aa][Nn]|[Ss][Tt][Dd]", features$feature)
 
-tbl_Subject_Record_Nos <- table(subject_merged)
-#records_on_subjects <- as.vector(table(subject_merged))
-record_split_by_subject <-split(X_merged, subject_merged$V1)
+X_Mean_Std <- X_merged[ , features_meanStd_index]
 
-features_meanStd_loc <- grep("[Mm][Ee][Aa][Nn]|[Ss][Tt][Dd]", features$V2)
-features_meanStd_val <- grep("[Mm][Ee][Aa][Nn]|[Ss][Tt][Dd]", features$V2, value = TRUE)
-features_meanStd_names <- sub("[()](.*)", "", features_meanStd_val)
+# Create a single DF with measurements on the mean and standard deviation, subject and activity
+tidyData <- cbind(X_Mean_Std, Y_merged, subject_merged)
 
-X_dfMeanStd <- X_merged[ , features_meanStd_loc]
+# Create a DF that contains summary of values, which are first grouped by subject and then grouped by activity
+tidyData_summarized <- tidyData %>% group_by(subject, activity) %>% summarise_all(funs(mean))
 
-colnames(X_dfMeanStd) <- features_meanStd_names
+# Change Variable names to represent these are Summarized by adding "AVG" prefix
+colnames(tidyData_summarized[3:ncol(tidyData_summarized)])<-paste("AVG", 
+                        colnames(tidyData_summarized[3:ncol(tidyData_summarized)]), sep = "_")
+# Write tidy and Summarized data to a file
+
+write.csv(tidyData, "Tidy_Data.csv")
+write.csv(tidyData_summarized, "Tidy_Data_Summary.csv")
