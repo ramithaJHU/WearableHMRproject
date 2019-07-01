@@ -197,7 +197,7 @@ $(document).ready(function () {
 <div id="jhu-data-science-specialization-course-project" class="section level4">
 <h4>JHU Data Science Specialization Course Project</h4>
 <hr />
-<p>This repo contains the files for Getting and Cleaning Data course of Coursera, JHU Data Science Specialization Course Project.</p>
+<p>This repository contains the files for Getting and Cleaning Data course of Coursera, JHU Data Science Specialization Course Project.</p>
 <p>A full description of the project, where the data used in this project were collected and the original data set is available at the site where the data was obtained: <a href="http://archive.ics.uci.edu/ml/datasets/Human+Activity+Recognition+Using+Smartphones">UCI Machine Learning Repository</a></p>
 <hr />
 </div>
@@ -207,24 +207,24 @@ $(document).ready(function () {
 <li><strong>README.md</strong> : Contains an introduction and Instruction List:</li>
 <li><strong>code_book.md</strong> : Contains description of all the Variables and Summary Choices:</li>
 <li><strong>run_analysis.R</strong> : Contains R script for converting row data into tidy data and then summarizing the data</li>
-<li><strong>Tidy_Data.csv</strong> : Contains the tidy data obtained fron above R script</li>
-<li><strong>Tidy_Data_Summary.csv</strong> : Contains the summary of tidy data obtained from above R script</li>
+<li><strong>Tidy_Data.txt</strong> : Contains the tidy data obtained from above R script</li>
+<li><strong>Tidy_Data_Summary.txt</strong> : Contains the summary of tidy data obtained from above R script</li>
 </ul>
 <hr />
 </div>
-<div id="r-script-file-run_analysis.r-contains-r-script-for-converting-row-data-into-tidy-data-and-them-summmarizing-the-data." class="section level4">
-<h4>R script file, <code>run_analysis.R</code>, Contains R script for converting row data into tidy data and them summmarizing the data.</h4>
-<p>Main steps followed in the process are as followed and has been firther described in Code Book</p>
-<p>This R sctipt created under following environment -Microsoft Windows 10 Pro -OS Version: 10.0.16299 build 16299</p>
+<div id="r-script-file-run_analysis.r-contains-r-script-for-converting-row-data-into-tidy-data-and-them-summarizing-the-data." class="section level4">
+<h4>R script file, <code>run_analysis.R</code>, Contains R script for converting row data into tidy data and them summarizing the data.</h4>
+<p>Main steps followed in the process are as followed and has been further described in Code Book</p>
+<p>This R script created under following environment -Microsoft Windows 10 Pro -OS Version: 10.0.16299 build 16299</p>
 <ol style="list-style-type: decimal">
-<li>Download and unzip the dataset, if it has not being downloaded</li>
-<li>Read Feature descriptions and Activity lables</li>
+<li>Download and unzip the data set, if it has not being downloaded</li>
+<li>Read Feature descriptions and Activity labels</li>
 <li>Check for duplicated features and check weather the duplicated items contains measurements on the mean and standard deviation Note: Even there are duplicated features with the same name, those items does not contain measurements on the mean and standard deviation. So, they were left as it is without combining.</li>
-<li>Remove “()” , replace “(” with “_“, replace”)&quot; with “”, replace “,” with “_&quot; and replace “-” with “_&quot; in feature names to make it meaningfull as DF column names can not contain (), - and ,</li>
+<li>Remove “()” , replace “(” with “_“, replace”)&quot; with “”, replace “,” with “_&quot; and replace “-” with “_&quot; in feature names to make it meaningful as DF column names can not contain (), - and ,</li>
 <li>Read the Test and Training data into variables</li>
 <li>Merge Train and Test data into single data frames of each type</li>
 <li>Remove original data frames from memory to save memory</li>
-<li>Replace activity numbers in Y_merge data drame with activity names</li>
+<li>Replace activity numbers in Y_merge data frame with activity names</li>
 <li>Find the column indexes, where word mean or std appear in any letter combination</li>
 <li>Create a new DF that contains data measurements on the mean and standard deviation</li>
 <li>Create a single DF with measurements on the mean and standard deviation, subject and activity</li>
@@ -232,7 +232,7 @@ $(document).ready(function () {
 <li>Change Variable names to represent these are Summarized by adding “AVG” prefix</li>
 <li>Write tidy and Summarized data to a file</li>
 </ol>
-<p>Tidy data and Summarized tidy data were saved two files named “Tidy_Data.csv” and “Tidy_Data_Summary.csv” respectively and uploaded for reference.</p>
+<p>Tidy data and Summarized tidy data were saved two files named “Tidy_Data.txt” and “Tidy_Data_Summary.txt” respectively and uploaded for reference.</p>
 </div>
 </div>
 

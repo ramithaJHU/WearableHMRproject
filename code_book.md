@@ -4,7 +4,7 @@
 Author: Ramitha P. Rathnayake
 
 ___
-This Code book describes the Variable names in file "Tidy_Data.txt" and summaries calculated based on those variables contained in file "Tidy_Data_Summary.txt" of this repository.
+This Code book describes the Variable names in file "Tidy_Data.csv" and summaries calculated based on those variables contained in file "Tidy_Data_Summary.csv" of this repository.
 
 - **"README.md"** file describes the steps followed in creating the above files
 - **"run_analysis.R"** : Contains R script for converting row data into tidy data and then summarizing the data
@@ -12,7 +12,7 @@ This Code book describes the Variable names in file "Tidy_Data.txt" and summarie
 A full description of the project, where the data used in this project were collected and the original data set is available at the site where the data was obtained: [UCI Machine Learning Repository](http://archive.ics.uci.edu/ml/datasets/Human+Activity+Recognition+Using+Smartphones)
 
 ___
-#### Steps associated in generating the data in "Tidy_Data.txt" and "Tidy_Data_Summary.txt" are:
+#### Steps associated in generating the data in "Tidy_Data.csv" and "Tidy_Data_Summary.csv" are:
     1. Downloaded and extracted the file in above link
     2. Training and the test sets were merged to create one data set. This data set was then merged with features and subject data
     3. Measurements on the mean and standard deviation for each measurement were extracted to create a separate data set.
@@ -23,7 +23,7 @@ ___
     8. Both tidy data set in step 6 and summarized data set in step 7 were saved to files.
 
 ___
-#### Variables in "Tidy_Data.txt"
+#### Variables in "Tidy_Data.csv"
 
 - subject : Represents 30 volunteers within an age bracket of 19-48 years
 
@@ -73,7 +73,7 @@ ___
     - `fBodyGyroJerkMag`
 
 ___
-#### Variables in "Tidy_Data_Summary.txt"
+#### Variables in "Tidy_Data_Summary.csv"
 
 - "mean" in variable names used to denote Mean value estimated from original signals
 
@@ -106,10 +106,10 @@ ___
     - `bandsEnergy`: Energy of a frequency interval within the 64 bins of the FFT of each window.
 
 ___
-#### Variables in "Tidy_Data_Summary.txt"
+#### Variables in "Tidy_Data_Summary.csv"
 
-- Variables in file "Tidy_Data_Summary.txt" were obtained by:
-    - All the variables in data set in "Tidy_Data.txt" were first grouped by subject and then grouped by activity. then, the average of each variable for each activity and each subject was calculated.
+- Variables in file "Tidy_Data_Summary.csv" were obtained by:
+    - All the variables in data set in "Tidy_Data.csv" were first grouped by subject and then grouped by activity. then, the average of each variable for each activity and each subject was calculated.
     - Prefix "AVG" was added to each variable name (except subject and activity) to denote the values are Averaged values
 
 ___    
